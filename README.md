@@ -6,21 +6,21 @@
 
 Example repository with CalVer (date-based) release workflow.
 
-## Workflows
+## Github Workflows
 
 ### Build
 
-Trigger: `git push origin push` or PR
+Trigger: `git push origin master` or PR
 
-- `ci-master-pr`: CI
+- `ci-master-pr`: CI on `master` and PRs. Drafts release notes on `master`.
 
 ### Releases
 
-#### date-based releases
+#### CalVer (date-based) releases
 
 Trigger: `git checkout release && git merge --no-ff master`.
 
-- `ci-release`: CI on branch `elease-tags-date`, ends by tagging its `HEAD` in format: `YYYYMMDD.<MINOR>.<PATCH>`, which will be an official release. Creates the release based on tag `YYYYMMDD.<MINOR>.<PATCH>`, publishing release notes.
+- `ci-release`: CI on `release`. Resolves the next tag in CalVer format `YYYYMMDD.<MINOR>.<PATCH>`, creates the release, and publishes release notes.
 
 ## Useful links
 
