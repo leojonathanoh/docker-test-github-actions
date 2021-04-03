@@ -12,7 +12,7 @@ Example repository with CalVer (date-based) release workflow.
 
 Trigger: `git push origin master` or PR
 
-- `ci-master-pr`: CI on `master` and PRs. Drafts release notes on `master`.
+- `ci-master-pr`: CI on `master` and PRs. Resolves the next tag in CalVer format `YYYYMMDD.<MINOR>.<PATCH>`, drafts release notes on `master`.
 
 ### Releases
 
