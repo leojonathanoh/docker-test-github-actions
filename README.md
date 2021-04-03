@@ -20,6 +20,5 @@ Trigger: `git push origin push` or PR
 
 Trigger: `git checkout release && git merge --no-ff master`.
 
-- `ci-release`: CI on branch `elease-tags-date`, ends by tagging its `HEAD` in format: `YYYYMMDD.<MINOR>.<PATCH>`, which will be an official release.
-- `ci-tags`: Creates the release based on tag `YYYYMMDD.<MINOR>.<PATCH>`, publishing release notes.
+- `ci-release`: CI on branch `elease-tags-date`, ends by tagging its `HEAD` in format: `YYYYMMDD.<MINOR>.<PATCH>`, which will be an official release. Creates the release based on tag `YYYYMMDD.<MINOR>.<PATCH>`, publishing release notes.
 
