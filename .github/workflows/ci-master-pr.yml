@@ -59,8 +59,8 @@ jobs:
         pwd
         docker info
         docker version
-  macos-10-15:
-    runs-on: macos-10.15
+  macos-latest:
+    runs-on: macos-latest
     steps:
     - uses: actions/checkout@v3
     - name: Display system info (macos)
@@ -256,7 +256,7 @@ jobs:
         run: echo ${{ steps.resolve-release-tag.outputs.TAG }}
 
   update-draft-release:
-    needs: [windows-2019, windows-2022, macos-10-15, test-powershell-6-0, test-powershell-6-1, test-powershell-6-1, test-powershell-7-0, test-powershell-7-1, test-powershell-7-2, resolve-release-tag]
+    needs: [windows-2019, windows-2022, macos-latest, test-powershell-6-0, test-powershell-6-1, test-powershell-6-1, test-powershell-7-0, test-powershell-7-1, test-powershell-7-2, resolve-release-tag]
     if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     steps:
