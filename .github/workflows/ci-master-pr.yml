@@ -233,7 +233,7 @@ jobs:
           echo "TODAYS_DATE: $TODAYS_DATE"
           echo "TODAYS_DATE_TAGS: $TODAYS_DATE_TAGS"
           echo "TAG: $TAG"
-          echo "::set-output name=TAG::$TAG"
+          echo "TAG=$TAG" >> $GITHUB_ENV
       - name: Print outputs
         run: echo ${{ steps.resolve-release-tag.outputs.TAG }}
 
