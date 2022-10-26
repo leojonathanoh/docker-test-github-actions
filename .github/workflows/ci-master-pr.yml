@@ -253,7 +253,7 @@ jobs:
           echo "TAG: $TAG"
           echo "TAG=$TAG" >> $GITHUB_ENV
       - name: Print outputs
-        run: echo ${{ steps.resolve-release-tag.outputs.TAG }}
+        run: echo ${{ env.TAG }}
 
   update-draft-release:
     needs: [windows-2019, windows-2022, macos-latest, test-powershell-6-0, test-powershell-6-1, test-powershell-6-1, test-powershell-7-0, test-powershell-7-1, test-powershell-7-2, resolve-release-tag]
