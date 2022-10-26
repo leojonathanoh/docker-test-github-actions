@@ -261,8 +261,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Print inputs
         run: echo ${{ needs.resolve-release-tag.outputs.TAG }}
       # Drafts your next Release notes as Pull Requests are merged into "master"
@@ -270,6 +268,22 @@ jobs:
         with:
           config-name: release-drafter.yml
           publish: false
+          name: ${{ needs.resolve-release-tag.outputs.TAG }}
+          tag: ${{ needs.resolve-release-tag.outputs.TAG }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-draft-release:
+    needs: [windows-2019, windows-2022, macos-latest, test-powershell-6-0, test-powershell-6-1, test-powershell-6-1, test-powershell-7-0, test-powershell-7-1, test-powershell-7-2, resolve-release-tag]
+    if: startsWith(github.ref, 'refs/tags/')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      # Drafts your next Release notes as Pull Requests are merged into "master"
+      - uses: release-drafter/release-drafter@v5
+        with:
+          config-name: release-drafter.yml
+          publish: true
           name: ${{ needs.resolve-release-tag.outputs.TAG }}
           tag: ${{ needs.resolve-release-tag.outputs.TAG }}
         env:
