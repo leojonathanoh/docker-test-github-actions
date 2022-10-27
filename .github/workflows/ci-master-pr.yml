@@ -284,5 +284,7 @@ jobs:
         with:
           # config-name: release-drafter.yaml
           publish: true
+          name: ${{  github.ref_name }}
+          tag: ${{  github.ref_name }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
